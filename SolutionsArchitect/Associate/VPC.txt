@@ -1,0 +1,50 @@
+Virtual Private Cloud
+- Connect through Internet Gateway or Virtual Private Gateway (VPN)
+- Jump Boxes or Bastillion servers allow you to ssh from a public subnet into a private subnet
+- One Subnet per availability zone
+- Cannot have the same ip address range in multiple availability zones
+- Security groups can be applied to multiple subnets
+- Multiple VPCs in a region is allowed - 5 by default but can get it expanded
+- Only one internet gateway per VPC
+- VPC peering is allowed
+- - 2 instances on different subnets/VPCs connect to eachother via private ip address
+- - can peer across accounts
+- Security groups are stateful
+- Network Access Control Lists (NACL) are stateless
+- NO transitive peering
+- A subnet can only be associated with 1 NACL
+- A route table is required to route out through an internet gateway
+- Endpoints provide a way to get to other AWS services from a private subnet without going through the internet
+- Instances will retain its private IP
+
+Flow Logs
+- Track ip traffic to and from VPCs
+- - amazon DNS server traffic NOT monitored
+- - Windows license activation traffic NOT monitored
+- - 169.254.169.254 not monitored
+- - DHCP traffic not monitored
+- - traffic to reserved IP for default VPC router not monitored
+- 2 Levels
+- - VPC
+- - Subnet
+- - Network Interface Level
+- Logs to CloudWatch log group
+- Cannot enable flowlogs for VPCs that are peered unless the peer is in your account
+- Cannot tag flow log yet
+- Cannot change flow log configuration
+
+NACL vs SG
+- SG is instance level, NACL is subnet level
+- SG allow rules only, NACL allow and deny
+- SG stateful, NACL stateless
+- SG evaluatges all rules before deciding to allow traffic, NACL process ruls in order
+- SG applies to instance IF you associate it, NACL applies to all instances in the subnet
+
+NATs
+- Provide internet traffic to EC2 instances in private subnets
+
+Bastion
+- Used to securely administer EC2 instances in private subnets
+- Harden one Bastion, not a ton of web servers
+- Multiple Bastions for reliability
+- Jump box

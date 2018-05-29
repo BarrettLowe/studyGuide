@@ -1,0 +1,21 @@
+Route53
+- DNS service runs on port 53
+- Default maximum is 50 domain names but can be increased by contacting AWS
+
+
+Elastic Load Balancers
+- Never have an ip, always DNS
+- Alias records allow you to resolve a naked domain name to a DNS address
+- - CNAME is basically the same thing but cannot resolve individual AWS resources like elastic load balancers or cloud front distributions
+- - CNAME costs money
+
+
+Failover Routing policy
+- Active passive setup
+- Send traffic to passive location if active fails
+- 2 apex (alias) records, primary/secondary
+
+Geolocation Routing Policy
+- Route based on location
+- - good for government restrictions
+- Set policy in apex record

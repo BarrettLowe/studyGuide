@@ -1,0 +1,11 @@
+CloudFront
+- CDN - Content Delivery Network
+- Edge Location - Location where content will be cached
+- - Similar to a region
+- Distribution - a collection of edge locations
+- Can also work with non AWS origin server
+- Web Distribution - for websites
+- RTMP Distribution - media streaming (adobe flash)
+- Edge locations are not read only, they can be written to and it will eventually make its way back up
+- TTL - time to keep in cache
+- Invalidating files has a financial cost

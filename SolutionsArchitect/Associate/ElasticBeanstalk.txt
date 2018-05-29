@@ -1,0 +1,5 @@
+Elastic Beanstalk
+- Allows developers to upload an application to the cloud without thinking about resources, load balancing, autoscaling etc
+- Can be written in php, python, ruby, go, .NET, java, Node.js
+- Powered by EC2, Load balancers, SQS, SNS, S3, and Auto scaling
+

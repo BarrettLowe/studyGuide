@@ -1,0 +1,19 @@
+RedShift
+- Datawarehousing in the cloud
+- Online Analytics Processing (OLAP)
+- Only available in 1 AZ
+- Can restore shapshots to new AZ in the event of an outage
+- Fast and cheap
+- Columnar storage
+- - Organizes data by columns
+- - ideal for data warehousing and analytics
+- - far fewer I/Os improving query performance
+- Advanced compression
+- - Compression of similar variable types is better than varied variable types
+- Massive Parallel Processing
+- - Single or multi nodes
+- Single Node has up to 160GB
+- Multi node can have up to 120 leader nodes under head
+- Priced by hour per node
+- Encrypted at rest and in transit
+

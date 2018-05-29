@@ -1,0 +1,34 @@
+StorageGateway
+- VM running on a hypervisor that connects directly to AWS
+- - Example. onsite
+- File Gateway (NFS)
+- Volume Gateway (iSCSI)
+- - Stored Volumes - storage on site, backup to cloud
+- - Caches Volumes - cache on site
+- Tape Gateway (VTL)
+
+File Gateway
+- Looks like a mount point
+- Stored in S3 buckets
+- Flat files
+
+Volume Gateway
+- Block based
+- Uses
+- - Applications
+- - OS
+- 1GB-16TB
+- Backed up to S3 as EBS Snapshots
+- - Snapshots are incremental meaning that only changes are captured
+- Stored Volumes
+- - Store primary data locally while asynchronously backing up to AWS
+- - Low latency for on site applications
+- - Able to be mounted as iSCSI devices
+- - Complete copy onsite, backedup to S3
+- Cached Volumes
+- - Most recently used data onsite, remaining is on S3
+
+Tape Gateway
+- Archive in the cloud
+- Leverage existing tabe-based backup cartridges
+- Virtual tapes are just being sent to S3

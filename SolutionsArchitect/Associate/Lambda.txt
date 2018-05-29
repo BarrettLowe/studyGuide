@@ -1,0 +1,8 @@
+Lambda
+- Serverless
+- Echo uses lambda
+- Scales out not up automatically
+- 1 event = 1 function
+- - Lambda function can trigger another function
+- AWS X-ray can be used for debugging
+- Max 5 min duration

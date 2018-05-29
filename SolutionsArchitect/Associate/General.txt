@@ -1,0 +1,3 @@
+Region - geographic location where AWS provides multiple physically separated and isolated Availability Zones
+
+Availability Zone - isolated location within AWS Region

@@ -1,0 +1,26 @@
+Identity Access Manager
+- Centralized control of AWS account
+- Shared acces to an AWS account
+- Federation
+- - Access through different identity providers
+- Multifactor Authentication (MFA)
+- Temporary access for users/devices
+- PCI DSS Compliance
+- Universal, region independant
+
+Users
+- New users have NO permissions
+- Power Users allows acces to all AWS services except the management of groups and users within IAM
+Groups 
+- A set of users under one or more sets of permissions
+Roles 
+- Assign roles to aws resources (certain permissions)
+- User in another accound
+- Application code on an EC2
+- Other AWS service
+Policy
+- A document that defines one or more permission
+- Can attach to users, groups and roles
+- Can be shared
+- Can create custom but lots are predefined
+- JSON format (key-value pair)

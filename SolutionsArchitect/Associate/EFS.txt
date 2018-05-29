@@ -1,0 +1,13 @@
+Elastic File System
+- Network File System (NFSv4)
+- Scales up to peta bytes
+- Charged by the gig
+- Supports thousands of concurrent NFS connections
+- Stored across multiple AZ regions
+- - Mount points can be created in multiple AZs
+- Block Based storage
+- Instances need to be in the same security group as the mount points (EFS volume)
+- Typically used as a file server
+- Can provide user level and directory level permissions
+- - Will be the same on all instances
+- Allows multiple instances to connect to it

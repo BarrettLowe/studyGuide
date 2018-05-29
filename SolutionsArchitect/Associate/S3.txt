@@ -1,0 +1,113 @@
+What is S3?
+- Object based Storage
+- Able to retrieve ANY amount of data from anywhere on the internet
+- Infinitely scalable
+- Can store virtually any kind of data (remember not block storage, though)
+- Uses HTTP methods (PUT, POST, COPY, DELETE, GET...)
+- Storage Classes
+- - S3 Standard
+- - S3 Infrequently Accessed (IA)
+- - S3 One Zone-IA
+- - S3 Reduced Redundancy
+- Read after write consistency for PUTS of new objects
+- Eventual consistency for overwrite PUTS and DELETES
+- Managed at a global level but buckets exist in specific regions
+- New buckets are private
+
+Core Fundamentals of an Object
+- Key
+- Value
+- Version ID
+- Metadata
+- Subresources
+- - ACL
+- - Torrent
+
+Infrequent Access (IA)
+- For data that is accessed less frequently but still requires immediate return
+- High durability and throughput with low latency
+- Charged per gig of return data and storage - retreival fee
+- Good candidate for Lifecycle Policy use
+- Offers same performance of standard S3
+- 99.9% availability
+- 11x9's durability
+- Changing from IA to standard S3 using a copy request isn't free
+- Storage in S3 IA for less than 30 days will encur the full fee for 30 days of use
+- See sizing notes
+- Lifecycles require that an object be 30 days old BEFORE moving to IA from Standard
+
+Sizing
+- Object sizes from 0 bytes up to 5 terabytes
+- A single PUT can be 5GB - maximum
+- - AWS recommends that object larger than 100MB be uploaded with the Multipart Upload capability
+- S3 IA has a minimum of 128KB object size
+
+Organization
+- Key-based object store
+- Uses unique keys that can later be used to retrieve the data
+- Can also use object tagging to organize across multiple buckets or prefixes
+
+Reliability
+- Standard storage class designed for 99.99% availability
+- Infrequently Accessed(IA) 99.9% availability
+- One Zone-IA 99.5% availability - replacing Reduced Redundancy Storage
+- Reduced Redundancy Storage 99.99% availability
+
+Durability
+- All S3 resources (Standard, IA, One Zone-IA, Glacier) have 11x9's durability over a given year
+- Standard, IA and Glacier are designed to withstand loss of an availability zone
+- Reduced Redundancy Storage 99.99% durability
+- Uses MD5 and CRC to detect corruption and automatically repairs from redundancy
+
+Regions
+- Users specify the region
+- Objects are automatically stored across multiple devices
+- - 3 devices at the minimum
+- - Physically different locations - separated by miles
+- - One Zone-IA are redundant within the Availability Zone
+- - One Zone-IA is susceptible to loss in an AZ destruction event (natural disaster)
+- Costs vary based on region
+
+Versioning
+- S3 buckets can be versioned
+- normal S3 rates and costs apply for each version of an object that is stored or requested (versioning is not free)
+- Lifecycle Rules can be set to shift versioned data to cheaper resources (Glacier)
+- Can be configured so that DELETE requires MFA
+- Cannot be disabled once enables - only suspended
+
+Security
+- On creation, only resource owners have access to S3 resources
+- SSL endpoints - encryption in transit
+- Server-Side Encryption (SSE) - encryption at rest
+- - Amazon S3 Managed Keys (SSE-S3)
+- - Key Management Service (KMS) (SSE-DMS)
+- - Customer Provided Keys (SSE-C)
+- Client side encryption
+- - Buckets can be configured to automatically encrypt data if it is not uploaded as encrypted
+- Restricting access
+- - Bucket policies
+- - - Rules that apply broadly across all requests to resources such as granting write priviledges to a specific resource
+- - Access Control Lists (ACL)
+- - - Grant read, write, or full_control to specific users for an indiviual bucket or object
+- - IAM Policies
+- - - Grants specific users fine grained control over resources
+- - Query String Authentication
+- - - Time limited URL specific to the resource
+- Access auditing via CloudTrail or logs into another bucket
+
+Transfer Acceleration
+- Enables fast easy and secure transfer between client and S3 Bucket
+- Leverages CloudFront's Edge Locations (Globally)
+- Urls: s3-accelerate.amazonaws.com OR s3-accelerate.dualstack.amazonaws.com
+
+Cross Region Replication
+- Automatically replicate objects from a bucket in one region to a specified bucket in a totally separate region
+- Can be used with Lifecycle rules
+- Encrypted transmission
+- Requires for versioning to be enabled
+- Regions must be unique
+- Existing files are not replicated automatically but future objects will be
+- Delete markers are replicated
+- - Deleting deleted markers are NOT replicated
+- Deleting individual versions are not replicated
+- Cannot daisy chain

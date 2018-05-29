@@ -1,0 +1,21 @@
+Elastic Block Storage
+- Persistance separate from the life of the EC2 instance
+- Can be the root volume of an instance though - configurable to not delete on instance termination
+- Elastic means you can change the size of it on the fly
+- Snapshots can be created through the EC2 API (NOT S3)
+- - Snapshots of root volumes need to have the instance stopped first
+- - Snapshots of root EBS volumes cannot be deleted if registered to an AMI
+- Cannot attach multiple instances to same volume
+- EBS volumes are created in availability zones and cannot be attached to an EC2 instance in a separate availability zone
+- Moving a volume to a new AZ requires taking a snapshot first
+
+
+Types
+- Transactional Workloads (high IOPS, boot volumes)
+- - Privisioned IOPS SSD (io 1)
+- - General Purpose SSD (gp 2)
+- Throughput Workloads (Large IO size and sequential IO patterns)
+- - Throughput Optimized HDD (st 1)
+- - Cold HDD (sc 1)
+- - Cannot be boot drives
+

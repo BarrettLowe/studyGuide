@@ -1,0 +1,11 @@
+Aurora
+- Amazon's own relational DB
+- 2 copies of your data contained in each AZ
+- - minimum of 3 AZs - 6 copies total
+- Designed to handle loss of up to two copies of data without affecting write availability
+- Designed to handle loss of up to three copies without affecting read availability
+- Self healing, disks are continuously scanned for errors and repaired automatically from other copies
+- Replicas 
+- - Aurora replicas (15)
+- - MySQL Read Replicas (5)
+

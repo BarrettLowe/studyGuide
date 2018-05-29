@@ -1,0 +1,9 @@
+DynamoDB
+- SSD storage
+- Spread across 3 geographically distinct data centers
+- Consistency
+- - Eventual Consistency (Default)
+- - Strongly consistent reads
+- Fast flexible NoSQL db
+- Pushbutton scaling without downtime
+- Key,value data

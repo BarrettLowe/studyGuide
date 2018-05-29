@@ -1,0 +1,58 @@
+Relational Database Service(?)
+- Restoring from automated or snapshot creates new endpoints
+- Online Transaction Processing (OLTP)
+- Downtime required to upgrade storage
+- Volume Limits
+- - IOPS - 16 TB
+- - General SSD - 16 TB
+- - Magnetic - 4 TB
+- Cannot currently increase storage on SQL Server instance
+
+Security Groups
+- 3 types in RDS
+- - DB Security Groups
+- - - Control access to EC2-Classic DB instances not in a VPC
+- - - Defining a port number for a SG is NOT necessary at the port for the DB instance is what it uses - duh
+- - VPC Security Groups
+- - - Control access to DB and EC2 instances in a VPC
+- - - Port Number required
+- - EC2 Security Groups
+- - - Control access to EC2 instance
+
+Automated Backups
+- Recover to any point in time within a retention period (1-35 days)
+- Enabled by default
+- Backed up on S3
+
+Snapshots
+- Snapshot of DB
+- Manual - user initiated
+- Remain after instance is deleted
+- Can create a snapshot but I/O may show higher latency until it's complete
+
+
+Read Replicas
+- For performance enhancement and scalability, not disaster recovery
+- Transfer charges to read replicas are free
+- Automatic backups MUST be turned on
+- Can be in separate region
+- Can chose multiple AZ
+- Read only copies
+- If most of db usage is read, this is a good option
+- - Writing still must happen to the primary
+- Limit to 5 RRs of DB BUT...
+- Read replicas of read replicas causes latency but will work
+- MySQL Server
+- PostgreSQL
+- MariaDB
+- Aurora
+
+Multi AZ
+- for disaster recovery ONLY
+- changes are copied over automatically
+- when one AZ fails, traffic is routed to the other one
+- Allows you to have an exact copy in separate AZ
+- Oracle
+- MySQL
+- MariaDB
+- PostgreSQL

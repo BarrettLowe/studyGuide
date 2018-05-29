@@ -1,0 +1,53 @@
+Elastic Cloud Compute
+- Compute resources in the cloud
+- Data transfer costs apply
+- - Including instance to instance across regions
+- Limited to 5 elastic IP addresses per region
+- Instances using Xen or Nitro hypervisor (Linux KVM)
+
+Pricing Models
+- On-Demand
+- - Pay by the hour or minute depending on instance type
+- Spot
+- - Bid for resources - savings up to 90% off on-demand
+- - If not charged if you get outbid in under an hour, terminating yourself will result in a charge for the full hour
+- Reserved
+- - Designed for applications that have steady state or predictable usage
+- - 1 or 3 year commitment
+- Dedicated Hosts
+- - Your own physical hardware (pricey)
+
+Instance Types (Dr. McGiftPix)
+- General Purpose
+- - T2, M5, M4
+- Compute Optimized
+- - C5, C4
+- Memory Optimized
+- - X1e, X1, R4
+- Accelerated Computing
+- - P3, P2, G3, F1
+- Storage Optimized
+- - H1, I3, D2
+
+Security
+- CloudTrail shows all API calls on instances
+- Security Groups
+- - All Inbound Traffic is Blocked by default
+- - All outbound traffic is allowed
+- - Can attach multiple security groups to an EC2 instance
+- - Stateful
+- - - Creating an inbound rule means that traffic is automatically allowed back out
+- - Cannot blocke specific IP addresses
+- - Can specify allow rules, not deny
+
+Placement Group
+- Clustered Placement Group
+- - instances within a single AZ
+- - Low latency between instances
+- - High throughput
+- Spread Placement Group
+- - instances placed on distinct underlying hardware
+- - Multi AZ is allowed
+- Names must be unique
+- Homogeneous instance types recommended
+- Cannot more existing instance into placement group, must create AMI and then launch new instance

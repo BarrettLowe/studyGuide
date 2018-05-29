@@ -1,0 +1,5 @@
+Elasticache
+- Web service that makes it easy to deploy, operate, and scale an in memory cache in the cloud
+- Retrieve cloud data from fast in-memory caches instead of slower disk-based databases
+- Supports memcached and redis
+- ex. cache most common queries
